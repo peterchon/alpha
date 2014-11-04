@@ -1,0 +1,41 @@
+header {
+	nav {
+		//background:url(../img/alpha-logo-crazy.png) scroll no-repeat 20px center transparent;
+		ul {
+			@extend .cf;
+			li {
+				float:left;
+				a {
+					display:inline-block;
+					padding:15px;
+					&:hover {
+						text-decoration:none;
+					}
+				}
+				ul {
+					display:none;
+					position:absolute;
+					left:0;
+					z-index:999;
+					width:100%;
+					background-color:rgba(black, 0.6);
+					li {
+						a {
+							@include anchor(#eee, #ddd, #fff);
+							font-size:.85em;
+						}
+					}
+				}
+				&:hover {
+					background-color:rgba(black, 0.6);
+					ul {
+						display:block;
+					}
+					a {
+						color:#eee;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,149 @@
+@import "compass/css3";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,100);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
+
+$redOranage: #FF530D;
+$orange: #F7931E;
+
+@mixin anchor($color, $hover, $active){
+	color:$color;
+		&:hover {
+			color:$hover;
+		}
+		&:active {
+			color:$active;
+		}
+}
+
+.reset {
+	display:block;
+	margin:0;
+	padding:0;
+	font-family:Roboto, sans-serif;
+	font-weight:300;
+	font-size:16px;
+	color:#3f3f3f;
+	//overflow:inherit;
+	@include box-sizing(border-box);
+}
+
+.cf {
+	*zoom:1;
+	&:before, &:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+}
+
+html, body {
+	@extend .reset;
+	&.stickyfooter {
+		height:100%;		
+	}
+}
+
+header, nav, menu, aside, section, article, footer {
+	@extend .reset;
+}
+
+div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, blockquote {
+	@extend .reset;
+}
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		font-size: 3.3em - .3 * $i;
+		font-weight:400;
+		color:$redOranage;
+		small {
+			font-size:.4em + .05 * $i;
+			font-weight:300;
+			color:#8f8f8f;
+		}
+		&.header {
+			padding-bottom:3px;
+			margin-bottom:15px;
+			border-bottom:1px solid #cfcfcf;
+		}
+	}
+}
+
+.grid {
+	text-align:justify;
+	font-size:0.1px;
+	@for $i from 1 through 12 {
+		.span#{$i} {
+			width:(100% - (2 * (12 / $i - 1))) / (12 / $i);
+			display:inline-block;
+			vertical-align:top;
+			text-align:left;
+		}
+	}
+	&:after {
+		content:"";
+		width:100%;
+		display:inline-block;
+	}
+}
+
+.masonry {
+	@extend .cf;
+	@for $i from 1 through 12 {
+		.column#{$i} {
+			width:(100% - (2 * (12 / $i - 1))) / (12 / $i);
+			margin-left:2%;
+			display:inline-block;
+			float:left;
+			&:first-child {
+				margin-left:0;
+			}
+		}
+	}
+}
+
+p {
+	line-height:1.5em;
+	strong {
+		font-weight:500;
+		margin:25px 5px 0;
+		display:inline-block;
+	}
+}
+
+.ipsum {
+	&.short:after {
+		content:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+	}
+	&.med:after {
+		content:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+	}
+	&.long:after {
+		content:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
+	}
+	&:after {
+		display:block;
+		text-align:left;
+	}
+}
+
+a {
+	color:#09f;
+	&:link, &:visited {
+		text-decoration:none;
+	}
+	&:hover {
+		color:#07c;
+		text-decoration:underline;
+	}
+	&:active {
+		color:#02f;
+	}
+}
+
+.format {
+	margin:0 auto;
+	max-width:1024px;
+}

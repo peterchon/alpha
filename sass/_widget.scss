@@ -1,0 +1,160 @@
+.grid-layout {
+	.grid {
+		border-top:1px solid #ccc;
+		padding:25px 0;
+		&:first-child {
+			border-top:0;
+			padding-top:0;
+		}
+	}
+}
+
+.modal {
+	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background:url(../img/sunset-cloud.jpg) scroll no-repeat center top rgba($redOranage, 0.95);
+	@include background-size(cover);
+	z-index:9998;
+	.inner-modal {
+		width:50%;
+		height:50%;
+		top:0;
+		bottom:0;
+		right:0;
+		left:0;
+		margin:auto;
+		position:fixed;
+		background-color:#fefefe;
+		z-index:9999;
+		border:5px solid #fff;
+		padding:10px 20px;
+		overflow:auto;
+		@include border-radius(3px);
+		@include box-shadow(rgba(black, 0.3) 0 0 8px, rgba(black, 0.3) 0 0 3px inset);
+	}
+	/*
+	&:before {
+		content:"[ click anywhere to close ]";
+		color:#E82C0C;
+		display:block;
+		text-align:center;
+		padding:10px 0 0;
+	}
+	*/
+}	
+
+.atip {
+	font-size:0.6em;
+	margin-top:-4px;
+	padding:4px;
+	line-height:0.6em;
+	border:1px solid #09f;
+	display:inline-block;
+	@include border-radius(2px);
+	@include transition-property("background-color, color");
+	@include transition-duration(0.3s);
+	vertical-align:middle;
+	position:relative;
+	&:after {
+		content:"!";
+	}
+	&:hover {
+		text-decoration:none;
+		background-color:#09f;
+		color:white;
+	}
+	div {
+		position:absolute;
+		z-index:7777;
+		bottom:30px;
+		right:0;
+		line-height:1.5em;
+		background-color:rgba(#09f, 0.9);
+		color:white;
+		padding:5px 10px;
+		border:5px solid #09f;
+		@include border-radius(3px 3px 0 3px);
+		&:after {
+			content:"";
+			position:absolute;
+			width:0;
+			height:0;
+			line-height:0;
+			border-style:solid;
+			border-color:transparent;
+			border-width:10px;
+			border-top-color:#09f;
+			bottom:-25px;
+			right:50%;
+			margin-right:-10px;
+			z-index:7778;
+		}
+		@for $i from 1 through 5 {
+			&.w#{$i}00 {
+				width:$i * 100px;
+				margin-right:$i * -100px / 2 + 6px;
+			}
+		}
+	}
+}
+
+.btn {
+	display:inline-block;
+	padding:5px 15px;
+	background-color:black;
+	color:white;
+	@include border-radius(3px);
+}
+
+.accordion {
+	margin:10px 0 0;
+	dt {
+		cursor:pointer;
+		color:#FF530D;
+		padding:8px 5px;
+		border-top:1px solid orange;
+		position:relative;
+		&:hover, &.active {
+			border-top-width:3px;
+		}
+	}
+	&.tabbed {
+		dt {
+			&.active {
+				&:before {
+					content:"";
+					position:absolute;
+					width:0;
+					height:0;
+					line-height:0;
+					border-style:solid;
+					border-color:transparent;
+					border-width:6px;
+					border-top-color:orange;
+					top:0;
+					left:50%;
+					margin-left:-3px;
+					z-index:7778;
+				}
+			}
+		}
+	}		
+	dd {
+		display:none;
+		margin:10px 0 0;
+		padding:0 5px 10px;
+	}
+	.control {
+		span {
+			@extend dt;
+			display:inline-block;
+			padding:8px 0;
+			margin:0 5px;
+		}
+	}
+}
+			

@@ -1,0 +1,139 @@
+@import "reset";
+@import "header";
+@import "widget";
+@import "die"; // for depricated IEs ;) (8 and below)
+
+body {
+	background:url(../img/sunset-cloud.jpg) fixed no-repeat center top white;
+	@include background-size(cover);
+	nav {
+		@extend .cf;
+		padding:0 20px;
+		border-bottom:1px solid rgba(white, 0.2);
+		ul {
+			a {
+				color:white;
+			}
+		}
+	}
+	.sitelogo {
+		display:inline-block;
+		text-indent:-9999em;
+		width:200px;
+		height:80px;
+		background:url(../img/alpha-logo.png) scroll no-repeat center transparent;
+	}
+	.stage {
+		background:url(../img/slant.png) scroll repeat left top transparent;
+		.format {
+			background:url(../img/alpha-big.png) scroll no-repeat center 30px transparent;			
+			padding:200px 0 100px;
+			h3, h6 {
+				color:white;
+				@include text-shadow(rgba(black, 0.8) 0 0 3px);
+				margin-bottom:10px;
+			}
+			h6 {
+				color:#efefef;
+				margin-bottom:30px;
+			}
+			.huge {
+				padding:10px 50px;
+				font-size:2em;
+				@include background(linear-gradient(top, #2f2f2f, #000));
+			}
+		}
+	}
+	section {
+		overflow:auto;
+		position:relative;
+		border-bottom:1px solid #cdcdcd;
+		padding:0 0 100px;
+		background:url(../img/alpha.png) scroll no-repeat 20px 99.5% rgba(white, 0.96);
+		.about {
+			margin-bottom:100px;
+			padding:100px 0;
+			background:url(../img/10.png) scroll repeat center #212121;
+			h4 {
+				margin-top:50px;
+			}
+			p {
+				color:white;
+				margin-top:1em;
+			}
+		}
+		.spy {
+			display:none;
+			//background:url(../img/alpha-logo-crazy.png) scroll no-repeat center 10px transparent;
+			position:fixed;
+			top:0;
+			left:0;
+			//width:100%;
+			//width:200px;
+			//padding-top:80px;
+			text-align:center;
+			z-index:99999;
+			a {
+				display:block;
+				padding:10px 15px;
+				text-transform:capitalize;
+				@include transition-property(background-color);
+				@include transition-duration(0.3s);
+				&:hover, &.active {
+					color:white;
+					background-color:rgba(black, 0.6);
+				}
+			}
+		}
+		article {
+			margin-top:30px;
+			&:first-child {
+				margin-top:0;
+			}
+			&.parallax {
+				min-height:1000px;
+				padding:50px;
+				background:url(../img/sunset-cloud.jpg) scroll no-repeat center top transparent;
+			}
+		}
+		.header {
+			margin-top:50px;
+			&:first-child {
+				margin-top:0;
+			}
+		}
+		.masonry {
+			p {
+				margin-top:25px;
+				span {
+					font-weight:500;
+					font-size:0.8em;
+					margin-bottom:10px;
+					display:inline-block;
+					height:60px;
+					width:60px;
+					margin:0 20px 10px 0;
+					padding-top:18px;
+					text-align:center;
+					color:white;
+					background-color:orange;
+					float:left;
+					@include border-radius(50px);
+					@include box-sizing(border-box);
+				}
+			}
+		}
+
+	}
+	footer {
+		padding:15px;
+		text-align:center;
+		small {
+			color:white;
+		}
+	}
+}
+
+
+
+@import "responsive";
